@@ -17,7 +17,7 @@ body{
 .container{
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 10px;
-    padding: 15px;
+    padding: 15px 30px;
     width: 500px;
     display: flex;
     flex-direction: column;
@@ -39,7 +39,6 @@ body{
 }
 
 .quiz-container .options{
-    background-color: red;
     height: 200px;
     width: 100%;
     display: flex;
@@ -51,7 +50,54 @@ body{
     list-style: none;
     height: auto;
     width: 100%;
-    background-color: brown;
-    border: 1px solid black;
+    border: 1px solid grey;
+    border-radius: 4px;
     padding: 10px;
+    cursor: pointer;
+    transition: .7s;
+}
+
+.answer.right{
+    color: darkgreen;
+    border-color: darkgreen;
+    background-color: lightgreen;
+}
+
+.answer.wrong{
+    color:darkred;
+    border-color:darkred;
+    background-color: tomato;
+}
+
+.options .answer:hover{
+    background-color: lightgray;
+}
+
+.btn-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 40px;
+}
+
+.btn-container p{
+    font-weight: bold;
+}
+
+.btn-container button{
+    /* height: 30px; */
+    padding: 8px 15px;
+    border: 1px solid cornflowerblue;
+    outline: 0;
+    font-size: 18px;
+    background-color: cornflowerblue;
+    border-radius: 6px;
+    text-transform: capitalize;
+    color: white;
+    transition: .5s;
+}
+
+.btn-container button:hover{
+    background-color: white;
+    color: cornflowerblue;
 }
