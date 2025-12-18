@@ -97,3 +97,11 @@ nextBtn.addEventListener("click", function () {
 });
 
 
+
+//close modal and restart game
+dialog.querySelector('form button').addEventListener('click', function(){
+  score = 0;
+  currentQuestionIndex = 0;
+  showQuestion()
+  dialog.closeModal();
+})
