@@ -45,14 +45,24 @@ function showQuestion(){
     questionElem.innerHTML = `${quizData[currentQuestionIndex].id}. ${quizData[currentQuestionIndex].question}`;
     questionNo.innerHTML = `${quizData[currentQuestionIndex].id} of ${quizData.length} question.`
 
-    quizData[currentQuestionIndex].options.forEach((option, index) => {
+    quizData[currentQuestionIndex].options.forEach((option) => {
         let li = document.createElement('li');
         li.classList.add("answer");
         li.innerText = option
         optionsElem.appendChild(li);
+        li.addEventListener('click', function(){
+            checkAnswer(option, quizData[currentQuestionIndex].answer, li)
+        })
     });
-
-
 };
 
 showQuestion();
+
+
+function checkAnswer(option, answer, liElem){
+    if(option == answer){
+        liElem.classList.add('right')
+    }else{
+        liElem.classList.add('wrong')
+    }
+}

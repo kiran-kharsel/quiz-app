@@ -54,7 +54,7 @@ body{
     border-radius: 4px;
     padding: 10px;
     cursor: pointer;
-    transition: .7s;
+    transition: .4s;
 }
 
 .answer.right{
