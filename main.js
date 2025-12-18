@@ -36,6 +36,7 @@ const quizData = [
 const questionElem = document.querySelector('.question')
 const optionsElem = document.querySelector('.options')
 const questionNo = document.querySelector('.questionNo')
+const nextBtn = document.querySelector('.next-btn')
 
 // current question
 let currentQuestionIndex = 0;
@@ -43,7 +44,10 @@ let currentQuestionIndex = 0;
 
 function showQuestion(){
     questionElem.innerHTML = `${quizData[currentQuestionIndex].id}. ${quizData[currentQuestionIndex].question}`;
-    questionNo.innerHTML = `${quizData[currentQuestionIndex].id} of ${quizData.length} question.`
+    questionNo.innerHTML = `${quizData[currentQuestionIndex].id} of ${quizData.length} question.`;
+
+    //clear previous elem
+    optionsElem.innerHTML = '';
 
     quizData[currentQuestionIndex].options.forEach((option) => {
         let li = document.createElement('li');
@@ -54,7 +58,7 @@ function showQuestion(){
             checkAnswer(option, quizData[currentQuestionIndex].answer, li);
             optionsElem.querySelectorAll('.answer').forEach((elem) =>{
                 elem.style.cursor = 'not-allowed';
-            })
+            });
         })
     });
 };
@@ -69,3 +73,8 @@ function checkAnswer(option, answer, liElem){
         liElem.classList.add('wrong')
     }
 }
+
+nextBtn.addEventListener('click', function(){
+    currentQuestionIndex++;
+    showQuestion();
+})
