@@ -91,6 +91,9 @@ nextBtn.addEventListener("click", function () {
   currentQuestionIndex++;
   if (currentQuestionIndex === quizData.length) {
     dialog.showModal();
+    dialog.querySelector('p').innerText = `your total score is: ${score}`
   }
   showQuestion();
 });
+
+
