@@ -39,6 +39,16 @@ body{
     background: rgba(0, 0, 0, 0.7)
 }
 
+#myDialog h2{
+    color: cornflowerblue;
+    text-transform: capitalize;
+}
+
+#myDialog p{
+    font-size: 18px;
+    font-weight: 500;
+}
+
 #myDialog form button{
     position: absolute;
     top: 15px;
