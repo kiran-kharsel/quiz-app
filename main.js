@@ -76,5 +76,8 @@ function checkAnswer(option, answer, liElem){
 
 nextBtn.addEventListener('click', function(){
     currentQuestionIndex++;
-    showQuestion();
+    if(currentQuestionIndex < quizData.length){
+        showQuestion();
+    }
+    
 })
