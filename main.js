@@ -45,7 +45,7 @@ let currentQuestionIndex = 0;
 // score
 let score = 0;
 
-function showQuestion() {
+function loadQuiz() {
   questionElem.innerHTML = `${quizData[currentQuestionIndex].id}. ${quizData[currentQuestionIndex].question}`;
   questionNo.innerText = `${quizData[currentQuestionIndex].id} of ${quizData.length} question.`;
   scoreElem.innerText = `🏆score : ${score}`;
@@ -69,7 +69,7 @@ function showQuestion() {
   });
 }
 
-showQuestion();
+loadQuiz();
 
 function checkAnswer(option, answer, liElem) {
   if (option == answer) {
@@ -93,7 +93,7 @@ nextBtn.addEventListener("click", function () {
     dialog.showModal();
     dialog.querySelector('p').innerText = `your total score is: ${score}`
   }
-  showQuestion();
+  loadQuiz();
 });
 
 
@@ -102,6 +102,6 @@ nextBtn.addEventListener("click", function () {
 dialog.querySelector('form button').addEventListener('click', function(){
   score = 0;
   currentQuestionIndex = 0;
-  showQuestion()
+  loadQuiz()
   dialog.closeModal();
 })
