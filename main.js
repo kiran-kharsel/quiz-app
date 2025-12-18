@@ -30,3 +30,29 @@ const quizData = [
     answer: "1995"
   }
 ];
+
+
+// dom element
+const questionElem = document.querySelector('.question')
+const optionsElem = document.querySelector('.options')
+const questionNo = document.querySelector('.questionNo')
+
+// current question
+let currentQuestionIndex = 0;
+
+
+function showQuestion(){
+    questionElem.innerHTML = `${quizData[currentQuestionIndex].id}. ${quizData[currentQuestionIndex].question}`;
+    questionNo.innerHTML = `${quizData[currentQuestionIndex].id} of ${quizData.length} question.`
+
+    quizData[currentQuestionIndex].options.forEach((option, index) => {
+        let li = document.createElement('li');
+        li.classList.add("answer");
+        li.innerText = option
+        optionsElem.appendChild(li);
+    });
+
+
+};
+
+showQuestion();
