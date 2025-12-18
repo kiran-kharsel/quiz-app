@@ -48,10 +48,13 @@ function showQuestion(){
     quizData[currentQuestionIndex].options.forEach((option) => {
         let li = document.createElement('li');
         li.classList.add("answer");
-        li.innerText = option
+        li.innerText = option;
         optionsElem.appendChild(li);
         li.addEventListener('click', function(){
-            checkAnswer(option, quizData[currentQuestionIndex].answer, li)
+            checkAnswer(option, quizData[currentQuestionIndex].answer, li);
+            optionsElem.querySelectorAll('.answer').forEach((elem) =>{
+                elem.style.cursor = 'not-allowed';
+            })
         })
     });
 };
