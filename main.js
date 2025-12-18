@@ -37,6 +37,7 @@ const optionsElem = document.querySelector(".options");
 const questionNo = document.querySelector(".questionNo");
 const nextBtn = document.querySelector(".next-btn");
 const scoreElem = document.querySelector('.score')
+const dialog = document.getElementById('myDialog');
 
 // current question
 let currentQuestionIndex = 0;
@@ -58,6 +59,7 @@ function showQuestion() {
     li.classList.add("answer");
     li.innerText = option;
     optionsElem.appendChild(li);
+
     li.addEventListener("click", function () {
       checkAnswer(option, quizData[currentQuestionIndex].answer, li);
       optionsElem.querySelectorAll(".answer").forEach((elem) => {
@@ -76,12 +78,19 @@ function checkAnswer(option, answer, liElem) {
     liElem.classList.add("right");
   } else {
     liElem.classList.add("wrong");
+    optionsElem.querySelectorAll(".answer").forEach((elem) => {
+      elem.style.cursor = "not-allowed";
+      if(elem.innerText === answer){
+        elem.classList.add("right");
+      }
+    });
   }
 }
 
 nextBtn.addEventListener("click", function () {
   currentQuestionIndex++;
-  if (currentQuestionIndex < quizData.length) {
-    showQuestion();
+  if (currentQuestionIndex === quizData.length) {
+    dialog.showModal();
   }
+  showQuestion();
 });

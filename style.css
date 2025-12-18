@@ -12,7 +12,24 @@ body{
     align-items: center;
     justify-content: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
 }
+
+
+/* modal  */
+#myDoalog{
+    position: fixed;
+    padding: 20px;
+    background-color: green;
+}
+
+
+
+
+
+
+
+/* modal end */
 
 .container{
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
